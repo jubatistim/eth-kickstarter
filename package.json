@@ -4,7 +4,8 @@
   "description": "my first project with dApp Ethereum",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "dev": "next dev"
   },
   "repository": {
     "type": "git",
@@ -24,9 +25,13 @@
   "dependencies": {
     "@truffle/hdwallet-provider": "^2.0.8",
     "dotenv": "^16.0.1",
+    "fs": "^0.0.1-security",
     "fs-extra": "^10.1.0",
     "ganache-cli": "^6.12.2",
     "mocha": "^10.0.0",
+    "next": "^12.1.6",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
     "solc": "^0.4.17",
     "web3": "^1.7.3"
   }
