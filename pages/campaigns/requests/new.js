@@ -76,7 +76,7 @@ class RequestNew extends Component {
                   onChange={(event) =>
                     this.setState({ description: event.target.value })
                   }
-                  placeHolder='Description of the request'
+                  placeholder='Description of the request'
                 />
               </Form.Field>
               <Form.Field>
