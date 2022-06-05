@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Form, Button, Input, Message } from "semantic-ui-react";
+import { Form, Button, Input, Message, Grid } from "semantic-ui-react";
 import Layout from "../../components/Layout";
 import factory from "../../ethereum/factory";
 import web3 from "../../ethereum/web3";
-import {Router} from "../../routes";
+import { Router } from "../../routes";
 
 class CampaignNew extends Component {
   state = { minimumContribution: "", errorMessage: "", loading: false };
@@ -21,7 +21,7 @@ class CampaignNew extends Component {
           from: accounts[0],
         });
 
-        Router.pushRoute('/');
+      Router.pushRoute("/");
     } catch (err) {
       this.setState({ errorMessage: err.message });
     }
@@ -32,25 +32,31 @@ class CampaignNew extends Component {
     return (
       <Layout>
         <h3>Create a campaign</h3>
-        <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
-          <Form.Field>
-            <label>Minimum Contribution</label>
-            <Input
-              label="wei"
-              labelPosition="right"
-              value={this.state.minimumContribution}
-              onChange={(event) =>
-                this.setState({ minimumContribution: event.target.value })
-              }
-            ></Input>
-          </Form.Field>
-          <Button primary loading={this.state.loading}>Create!</Button>
-          <Message
-            error
-            header="Oops!"
-            content={this.state.errorMessage}
-          ></Message>
-        </Form>
+        <Grid>
+          <Grid.Column width={6}>
+            <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
+              <Form.Field>
+                <label>Minimum Contribution</label>
+                <Input
+                  label="wei"
+                  labelPosition="right"
+                  value={this.state.minimumContribution}
+                  onChange={(event) =>
+                    this.setState({ minimumContribution: event.target.value })
+                  }
+                ></Input>
+              </Form.Field>
+              <Button primary loading={this.state.loading}>
+                Create!
+              </Button>
+              <Message
+                error
+                header="Oops!"
+                content={this.state.errorMessage}
+              ></Message>
+            </Form>
+          </Grid.Column>
+        </Grid>
       </Layout>
     );
   }
