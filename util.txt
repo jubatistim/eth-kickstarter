@@ -1,0 +1,7 @@
+docker build -t eth-kickstarter .
+
+docker run -dp 5000:3000 eth-kickstarter
+
+heroku stack:set container --app eth-kickstarter
+
+https://eth-kickstarter.herokuapp.com/
